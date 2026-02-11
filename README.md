@@ -37,17 +37,23 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 CODE SEGMENT
 ASSUME CS:CODE, DS:CODE
 ORG 1000H
+
 MOV CL,00H
 MOV AX,1234H
 MOV BX,1234H
 ADD AX,BX
+
 JNC L1
 INC CL
-L1:MOV SI,1200H
+L1:
+
+MOV SI,1200H
 MOV [SI],AX
 MOV [SI+2],CL
+
 MOV AH,4CH
 INT 21H
+
 CODE ENDS
 END
 ```
@@ -56,16 +62,18 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|       1200🔢
-|                          |
+|       1200              |            68            |
+|       1201              |            24            |
 
 #### Manual Calculations
+<img width="1280" height="796" alt="image" src="https://github.com/user-attachments/assets/a637e6f4-c6b0-4c3a-a3f0-5ba18625b8ae" />
 
-(Add your calculation here)
 
----
 
 ## OUTPUT IMAGE FROM MASM SOFTWARE
+<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/cd27152f-01d2-4d2b-b835-21436c956484" />
+
+
 
 ## 2. SUBTRACTION
 
@@ -87,18 +95,23 @@ END
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
 ORG 1000H
-MOV SI,2000H
+
 MOV CL,00H
-MOV AX,[SI]
-MOV BX,[SI+02H]
+MOV AX,1234H
+MOV BX,1234H
 SUB AX,BX
+
 JNC L1
 INC CL
 L1:
-MOV [SI+04H],AX
-MOV [SI+06H],CL
+
+MOV SI,1200H
+MOV [SI],AX
+MOV [SI+2],CL
+
 MOV AH,4CH
 INT 21H
+
 CODE ENDS
 END
 ```
@@ -108,16 +121,21 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|             1200        |           00             |
+|             1201        |           00             |
 
 #### Manual Calculations
+<img width="1280" height="910" alt="image" src="https://github.com/user-attachments/assets/b6f90c2c-92f0-49da-bae6-4f61d6aa3f5b" />
 
-(Add your calculation here)
 
----
 
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/d55fa104-84c2-485b-b186-6f087d92effd" />
+
+
+
+
 
 ## 3. MULTIPLICATION
 
@@ -138,34 +156,42 @@ END
 
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE,DS:CODE
 ORG 1000H
-MOV SI,2000H
+
 MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
+MOV AX,1234H
+MOV BX,1234H
 MUL BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
+
+MOV SI,1200H
+MOV [SI],AX
+MOV [SI+02H],DX
+
 MOV AH,4CH
 INT 21H
+
 CODE ENDS
 END
+
+
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|           1200          |            90            |
+|           1201          |            5A            |
 
 #### Manual Calculations
+<img width="689" height="720" alt="image" src="https://github.com/user-attachments/assets/797a8a55-d2e6-47cc-b54a-8e40dd2d0889" />
 
-(Add your calculation here)
 
----
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/f0200a44-0c1d-4624-87c1-d6457623d2c9" />
+
 
 ## 4. DIVISION
 
@@ -183,33 +209,43 @@ END
 
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE, DS:CODE
 ORG 1000H
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
+
+MOV SI, 2000H
+MOV DX, 0000H
+MOV AX, 1234H
+MOV BX, 1234H
 DIV BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
+
+MOV [SI+04H], AX
+MOV [SI+06H], DX
+MOV AH, 4CH
 INT 21H
+
 CODE ENDS
 END
+
+
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|            1200         |           42             |
+|            1201         |           81             |
 
 #### Manual Calculations
+<img width="1280" height="944" alt="image" src="https://github.com/user-attachments/assets/9302e87f-a45d-4cc2-b938-5a3d78bdd9b7" />
 
-(Add your calculation here)
 
----
+
+
 ## OUTPUT FROM MASM SOFTWARE
+<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/66dbe684-d496-456b-9476-98875d1a17de" />
+
+
 
 
 
