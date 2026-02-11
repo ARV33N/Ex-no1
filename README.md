@@ -155,24 +155,25 @@ END
 #### Program
 
 ```asm
+
 CODE SEGMENT
-ASSUME CS:CODE,DS:CODE
+ASSUME CS:CODE, DS:CODE
 ORG 1000H
 
-MOV DX,0000H
-MOV AX,1234H
-MOV BX,1234H
+MOV AX, 1234H
+MOV BX, 1234H
 MUL BX
 
-MOV SI,1200H
-MOV [SI],AX
-MOV [SI+02H],DX
+MOV SI, 1200H
+MOV [SI], AX
+MOV [SI+02H], DX
 
-MOV AH,4CH
+MOV AH, 4CH
 INT 21H
 
 CODE ENDS
 END
+
 
 
 ```
@@ -209,41 +210,43 @@ END
 
 ```asm
 CODE SEGMENT
+CODE SEGMENT
 ASSUME CS:CODE, DS:CODE
 ORG 1000H
 
-MOV SI, 2000H
+MOV CL, 00H
+MOV AX, 0084H
+MOV BX, 0004H
 MOV DX, 0000H
-MOV AX, 1234H
-MOV BX, 1234H
 DIV BX
 
-MOV [SI+04H], AX
-MOV [SI+06H], DX
+L1:
+MOV SI, 1200H
+MOV [SI], AX
+MOV [SI+2], DX
 MOV AH, 4CH
 INT 21H
 
 CODE ENDS
 END
-
-
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|            1200         |           42             |
-|            1201         |           81             |
+|            1200         |           21             |
+|            1201         |           00             |
 
 #### Manual Calculations
-<img width="1280" height="944" alt="image" src="https://github.com/user-attachments/assets/9302e87f-a45d-4cc2-b938-5a3d78bdd9b7" />
+<img width="1280" height="737" alt="image" src="https://github.com/user-attachments/assets/1af771a0-ea81-45c1-85f5-0d96c6895d38" />
 
 
 
 
 ## OUTPUT FROM MASM SOFTWARE
-<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/66dbe684-d496-456b-9476-98875d1a17de" />
+<img width="642" height="433" alt="image" src="https://github.com/user-attachments/assets/7d3dee01-b052-4505-860b-fadaf8caa321" />
+
 
 
 
